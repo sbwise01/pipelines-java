@@ -16,4 +16,6 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
+    uname -a
+    cat /etc/os-release
   displayName: 'Run a multi-line script'
