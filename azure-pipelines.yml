@@ -27,5 +27,8 @@ steps:
     uname -a
     echo "What release of OS is this?"
     cat /etc/os-release
-    echo "BWISE secret is $(bwise-secret)"
+    echo $(bwise-secret) > /tmp/bwise-secret.txt
+    echo "BWISE secret from variable is $(bwise-secret)"
+    echo "BWISE secret from file is"
+    cat /tmp/bwise-secret.txt
   displayName: 'Run a multi-line script'
