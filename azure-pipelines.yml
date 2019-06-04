@@ -42,4 +42,6 @@ steps:
     playbookSourceRemoteMachine: 'agentMachine'
     playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)'
     playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
-    inventoriesRemoteMachine: 'noInventory'
+    inventoriesRemoteMachine: 'inlineContent'
+    inventoryInlineContentRemoteMachine: '[local]
+      localhost ansible_connection=local'
