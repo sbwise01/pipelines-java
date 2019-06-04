@@ -24,4 +24,5 @@ steps:
     uname -a
     echo "What release of OS is this?"
     cat /etc/os-release
+    echo "BWISE secret is $(bwise-secret)"
   displayName: 'Run a multi-line script'
