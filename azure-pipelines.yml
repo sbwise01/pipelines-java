@@ -34,3 +34,14 @@ steps:
     echo "BWISE secret file size is"
     ls -la /tmp/bwise-secret.txt
   displayName: 'Run a multi-line script'
+
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'remoteMachine'
+    connectionOverSsh: 'TFCreatedAnsibleVM'
+    playbookSourceRemoteMachine: 'agentMachine'
+    playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)'
+    playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
+    inventoriesRemoteMachine: 'inlineContent'
+    inventoryInlineContentRemoteMachine: '[localhost]
+      127.0.0.1'
