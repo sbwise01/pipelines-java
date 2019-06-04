@@ -16,6 +16,12 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
+    echo "Where am I?"
+    pwd
+    echo "What is located here?"
+    ls -la
+    echo "What kind of OS is this?"
     uname -a
+    echo "What release of OS is this?"
     cat /etc/os-release
   displayName: 'Run a multi-line script'
