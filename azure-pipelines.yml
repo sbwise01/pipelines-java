@@ -42,6 +42,4 @@ steps:
     playbookSourceRemoteMachine: 'agentMachine'
     playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)'
     playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
-    inventoriesRemoteMachine: 'inlineContent'
-    inventoryInlineContentRemoteMachine: '[localhost]
-      127.0.0.1'
+    inventoriesRemoteMachine: 'noInventory'
