@@ -8,8 +8,8 @@
 
 
   tasks:
-  - name: Install curl
-    yum:
-      name: curl
-      state: latest
-      use_backend: yum3
+  - name: touch ansible_vault password file
+    file:
+      path: ~/.ansible_vault_key
+      state: touch
+      mode: 0600
