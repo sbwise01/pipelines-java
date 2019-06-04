@@ -43,4 +43,4 @@ steps:
     playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)'
     playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
     inventoriesRemoteMachine: 'hostList'
-    inventoryHostListRemoteMachine: 'localhost ansible_connection=local''
+    inventoryHostListRemoteMachine: 'localhost ansible_connection=local'
