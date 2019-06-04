@@ -3,6 +3,9 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+- group: ENVBase
+
 trigger:
 - master
 
@@ -24,5 +27,5 @@ steps:
     uname -a
     echo "What release of OS is this?"
     cat /etc/os-release
-    echo "BWISE secret is $(bwise-secret)"
+    echo "BWISE secret is $bwise-secret"
   displayName: 'Run a multi-line script'
