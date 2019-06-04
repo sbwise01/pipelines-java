@@ -31,4 +31,6 @@ steps:
     echo "BWISE secret from variable is $(bwise-secret)"
     echo "BWISE secret from file is"
     cat /tmp/bwise-secret.txt
+    echo "BWISE secret file size is"
+    ls -la /tmp/bwise-secret.txt
   displayName: 'Run a multi-line script'
