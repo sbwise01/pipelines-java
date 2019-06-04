@@ -12,3 +12,4 @@
     yum:
       name: curl
       state: latest
+      use_backend: yum3
