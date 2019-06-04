@@ -1,0 +1,13 @@
+---
+
+- hosts: localhost
+  become: true
+  become_user: root
+  become_method: sudo
+
+
+  tasks:
+  - name: Install curl
+    yum:
+      name: curl
+      state: latest
