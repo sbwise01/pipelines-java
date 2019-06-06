@@ -5,6 +5,8 @@
 
 variables:
 - group: ENVBase
+- name: ANSIBLE_VAULT_PASSWORD_FILE
+  value: '~/.ansible_vault_key'
 
 trigger:
 - master
@@ -33,7 +35,7 @@ steps:
   inputs:
     sshEndpoint: 'Ansible_Automation'
     runOptions: 'commands'
-    commands: 'echo $(ansible-vault-key) > ~/.ansible_vault_key'
+    commands: 'echo $(ansible-vault-key) > $(ANSIBLE_VAULT_PASSWORD_FILE)'
 
 - task: Ansible@0
   inputs:
@@ -44,4 +46,4 @@ steps:
     playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
     inventoriesRemoteMachine: 'hostList'
     inventoryHostListRemoteMachine: 'localhost ansible_connection=local'
-    args: '-e "otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) datacenter=sv4 env_name=sre-sit artifact_file=latest.yml" --vault-password-file ~/.ansible_vault_key'
+    args: '-e "otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) datacenter=sv4 env_name=sre-sit artifact_file=latest.yml"'

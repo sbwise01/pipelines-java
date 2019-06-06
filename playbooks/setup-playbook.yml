@@ -10,6 +10,7 @@
     ansible_password: "{{ lookup('env','ansible_password') }}"
     nexus_username: "{{ lookup('env','nexus_username') }}"
     nexus_password: "{{ lookup('env','nexus_password') }}"
+    ansible_vault_password_file: "{{ lookup('env','ANSIBLE_VAULT_PASSWORD_FILE') }}"
 
 
   tasks:
@@ -32,5 +33,7 @@
       echo "{{ nexus_username }}" >> /tmp/bwfoo.txt
       echo "Nexus password" >> /tmp/bwfoo.txt
       echo "{{ nexus_password }}" >> /tmp/bwfoo.txt
+      echo "ANSIBLE_VAULT_PASSWORD_FILE" >> /tmp/bwfoo.txt
+      echo "{{ ansible_vault_password_file }}" >> /tmp/bwfoo.txt
     args:
       executable: /usr/bin/bash
