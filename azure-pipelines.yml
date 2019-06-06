@@ -44,4 +44,4 @@ steps:
     playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
     inventoriesRemoteMachine: 'hostList'
     inventoryHostListRemoteMachine: 'localhost ansible_connection=local'
-    args: '-e "datacenter=sv4 env_name=sre-sit otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) artifact_file=latest.yml" --vault-password-file ~/.ansible_vault_key'
+    args: '-e "otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) datacenter=sv4 env_name=sre-sit artifact_file=latest.yml" --vault-password-file ~/.ansible_vault_key'
