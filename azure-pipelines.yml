@@ -44,4 +44,4 @@ steps:
     playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
     inventoriesRemoteMachine: 'hostList'
     inventoryHostListRemoteMachine: 'localhost ansible_connection=local'
-    args: '-e “otherfile=barfoo.txt ansible_user=tfuser.at.SV4.ACCELA.COM ansible_password=$(ansible-password)“ --vault-password-file ~/.ansible_vault_key'
+    args: '-e “otherfile=barfoo.txt“ --vault-password-file ~/.ansible_vault_key'
