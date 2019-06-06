@@ -35,11 +35,7 @@ steps:
   inputs:
     sshEndpoint: 'Ansible_Automation'
     runOptions: 'commands'
-    commands: 'echo $(ansible-vault-key) > $(- task: SSH@0
-  inputs:
-    sshEndpoint: 'Ansible_Automation'
-    runOptions: 'commands'
-    commands: 'echo "The value of ANSIBLE_VAULT_PASSWORD_FILE is $ANSIBLE_VAULT_PASSWORD_FILE"')'
+    commands: 'echo "The value of ANSIBLE_VAULT_PASSWORD_FILE is $ANSIBLE_VAULT_PASSWORD_FILE"'
 
 - task: Ansible@0
   inputs:
