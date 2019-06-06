@@ -40,7 +40,7 @@ steps:
     ansibleInterface: 'remoteMachine'
     connectionOverSsh: 'Ansible_Automation'
     playbookSourceRemoteMachine: 'agentMachine'
-    playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)'
+    playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)/playbooks'
     playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
     inventoriesRemoteMachine: 'hostList'
     inventoryHostListRemoteMachine: 'localhost ansible_connection=local'
