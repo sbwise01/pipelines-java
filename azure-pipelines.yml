@@ -5,8 +5,8 @@
 
 variables:
 - group: ENVBase
-- SRE_DC: sv4
-- SRE_ENV: sre-sit
+  SRE_DC: sv4
+  SRE_ENV: sre-sit
 
 trigger:
 - master
