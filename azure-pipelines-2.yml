@@ -1,0 +1,47 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+variables:
+- group: ENVBase
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+    echo "Where am I?"
+    pwd
+    echo "What is located here?"
+    ls -la
+    echo "What kind of OS is this?"
+    uname -a
+    echo "What release of OS is this?"
+    cat /etc/os-release
+  displayName: 'Run a multi-line script'
+
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'Ansible_Automation'
+    runOptions: 'commands'
+    commands: 'echo $(ansible-vault-key) > ~/.ansible_vault_key'
+
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'remoteMachine'
+    connectionOverSsh: 'Ansible_Automation'
+    playbookSourceRemoteMachine: 'agentMachine'
+    playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)'
+    playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
+    inventoriesRemoteMachine: 'hostList'
+    inventoryHostListRemoteMachine: 'localhost ansible_connection=local'
+    args: '-e "otherfile=barfoo.txt"'
