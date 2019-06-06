@@ -6,11 +6,6 @@
     otherfile: "{{ lookup('env','otherfile') }}"
 
   tasks:
-  - name: touch ansible_vault password file
-    file:
-      path: ~/.ansible_vault_key
-      state: touch
-      mode: 0600
   - name: touch other file
     file:
       path: "~/{{ otherfile }}"
