@@ -4,6 +4,13 @@
   gather_facts: no
   vars:
     otherfile: "{{ lookup('env','otherfile') }}"
+    datacenter: "{{ lookup('env','SRE_DC') }}"
+    env_name: "{{ lookup('env','SRE_ENV') }}"
+    ansible_user: "{{ lookup('env','ansible_user') }}"
+    ansible_password: "{{ lookup('env','ansible_password') }}"
+    nexus_username: "{{ lookup('env','nexus_username') }}"
+    nexus_password: "{{ lookup('env','nexus_password') }}"
+
 
   tasks:
   - name: touch other file
@@ -11,3 +18,19 @@
       path: "~/{{ otherfile }}"
       state: touch
       mode: 0600
+  - name: Run shell
+    shell: |
+      echo "Datacenter" >> {{ otherfile }}
+      echo {{ datacenter }} >> {{ otherfile }}
+      echo "Env name" >> {{ otherfile }}
+      echo {{ env_name }} >> {{ otherfile }}
+      echo "Ansible user" >> {{ otherfile }}
+      echo {{ ansible_user }} >> {{ otherfile }}
+      echo "Ansible password" >> {{ otherfile }}
+      echo {{ ansible_password }} >> {{ otherfile }}
+      echo "Nexus user" >> {{ otherfile }}
+      echo {{ nexus_username }} >> {{ otherfile }}
+      echo "Nexus password" >> {{ otherfile }}
+      echo {{ nexus_password }} >> {{ otherfile }}
+    args:
+      executable: /usr/bin/bash
