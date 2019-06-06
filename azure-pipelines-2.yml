@@ -44,4 +44,4 @@ steps:
     playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
     inventoriesRemoteMachine: 'hostList'
     inventoryHostListRemoteMachine: 'localhost ansible_connection=local'
-    args: '-e "otherfile=barfoo.txt"'
+    args: '-e "otherfile=barfoomacphee.txt"'
