@@ -36,4 +36,4 @@
       echo "ANSIBLE_VAULT_PASSWORD_FILE" >> /tmp/bwfoo.txt
       echo "{{ ansible_vault_password_file }}" >> /tmp/bwfoo.txt
     args:
-      executable: /usr/bin/env bash
+      executable: /bin/bash
