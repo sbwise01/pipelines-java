@@ -32,7 +32,7 @@ steps:
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
-    playbookPathOnAgentMachine: '$(System.DefaultWorkingDirectory)'
+    playbookPathOnAgentMachine: '$(System.DefaultWorkingDirectory)/playbooks/setup-playbook.yml'
     inventoriesAgentMachine: 'hostList'
     inventoryHostListAgentMachine: 'localhost ansible_connection=local'
     args: '-e "otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) datacenter=sv4 env_name=sre-sit artifact_file=latest.yml"'
