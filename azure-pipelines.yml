@@ -31,19 +31,10 @@ steps:
     cat /etc/os-release
   displayName: 'Run a multi-line script'
 
-- task: SSH@0
-  inputs:
-    sshEndpoint: 'Ansible_Automation'
-    runOptions: 'commands'
-    commands: 'echo "The value of ANSIBLE_VAULT_PASSWORD_FILE is $ANSIBLE_VAULT_PASSWORD_FILE"'
-
 - task: Ansible@0
   inputs:
-    ansibleInterface: 'remoteMachine'
-    connectionOverSsh: 'Ansible_Automation'
-    playbookSourceRemoteMachine: 'agentMachine'
-    playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)/playbooks'
-    playbookPathLinkedArtifactOnRemoteMachine: 'setup-playbook.yml'
-    inventoriesRemoteMachine: 'hostList'
-    inventoryHostListRemoteMachine: 'localhost ansible_connection=local'
+    ansibleInterface: 'agentMachine'
+    playbookPathOnAgentMachine: '$(System.DefaultWorkingDirectory)'
+    inventoriesAgentMachine: 'hostList'
+    inventoryHostListAgentMachine: 'localhost ansible_connection=local'
     args: '-e "otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) datacenter=sv4 env_name=sre-sit artifact_file=latest.yml"'
