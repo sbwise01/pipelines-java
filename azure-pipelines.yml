@@ -5,8 +5,6 @@
 
 variables:
 - group: ENVBase
-- name: ANSIBLE_VAULT_PASSWORD_FILE
-  value: '~/.ansible_vault_key'
 
 trigger:
 - master
