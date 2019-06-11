@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+variables:
+- group: ENVBase
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+    echo "Where am I?"
+    pwd
+    echo "What is located here?"
+    ls -la
+    echo "What kind of OS is this?"
+    uname -a
+    echo "What release of OS is this?"
+    cat /etc/os-release
+  displayName: 'Run a multi-line script'
+
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'agentMachine'
+    playbookPathOnAgentMachine: '${System.DefaultWorkingDirectory)/playbooks/setup-playbook.yml'
+    inventoriesAgentMachine: 'file'
+    inventoryFileOnAgentMachine: '${System.DefaultWorkingDirectory)/inventory.yml'
+    args: '-e "otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) datacenter=sv4 env_name=sre-sit artifact_file=latest.yml"'
