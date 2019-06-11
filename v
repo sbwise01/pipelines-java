@@ -1,1 +1,1 @@
-otherfile: barfoo.txt
+othervar: foobarmacphee

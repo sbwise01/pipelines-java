@@ -4,6 +4,7 @@
   gather_facts: no
   vars:
     otherfile: "{{ lookup('env','otherfile') }}"
+    othervar: "{{ lookup('env','othervar') }}"
     datacenter: "{{ lookup('env','SRE_DC') }}"
     env_name: "{{ lookup('env','SRE_ENV') }}"
     ansible_user: "{{ lookup('env','ansible_user') }}"
