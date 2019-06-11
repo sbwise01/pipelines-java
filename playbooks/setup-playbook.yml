@@ -36,5 +36,7 @@
       echo "{{ nexus_password }}" >> /tmp/bwfoo.txt
       echo "ANSIBLE_VAULT_PASSWORD_FILE" >> /tmp/bwfoo.txt
       echo "{{ ansible_vault_password_file }}" >> /tmp/bwfoo.txt
+      echo "othervar" >> /tmp/bwfoo.txt
+      echo "{{ othervar }}" >> /tmp/bwfoo.txt
     args:
       executable: /bin/bash
