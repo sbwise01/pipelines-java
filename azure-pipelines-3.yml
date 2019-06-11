@@ -35,7 +35,7 @@ steps:
     playbookPathOnAgentMachine: '$(System.DefaultWorkingDirectory)/playbooks/setup-playbook.yml'
     inventoriesAgentMachine: 'file'
     inventoryFileOnAgentMachine: '$(System.DefaultWorkingDirectory)/inventory.yml'
-    args: '-e "otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) datacenter=sv4 env_name=sre-sit artifact_file=latest.yml @$(System.DefaultWorkingDirectory)/v"'
+    args: '-e "@$(System.DefaultWorkingDirectory)/v" -e "otherfile=barfoo.txt ansible_user=tfuser@SV4.ACCELA.COM ansible_password=$(ansible-password) nexus_username=SVC-Nexus nexus_password=$(nexus-password) datacenter=sv4 env_name=sre-sit artifact_file=latest.yml"'
 
 - script: |
     echo "Results are?"
