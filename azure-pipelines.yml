@@ -27,6 +27,8 @@ steps:
     uname -a
     echo "What release of OS is this?"
     cat /etc/os-release
+    echo "What env is here?"
+    env
   displayName: 'Run a multi-line script'
 
 - task: Ansible@0
